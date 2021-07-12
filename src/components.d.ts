@@ -6,56 +6,46 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface VideoEmbed {
+        "autoplay": boolean;
+        "playLabel": string;
+        "startAt": number;
+        "videoId": string;
+        "videoProvider": string;
+        "videoTitle": string;
+        "youtubeParams": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLVideoEmbedElement extends Components.VideoEmbed, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLVideoEmbedElement: {
+        prototype: HTMLVideoEmbedElement;
+        new (): HTMLVideoEmbedElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "video-embed": HTMLVideoEmbedElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface VideoEmbed {
+        "autoplay"?: boolean;
+        "playLabel"?: string;
+        "startAt"?: number;
+        "videoId"?: string;
+        "videoProvider"?: string;
+        "videoTitle"?: string;
+        "youtubeParams"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "video-embed": VideoEmbed;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "video-embed": LocalJSX.VideoEmbed & JSXBase.HTMLAttributes<HTMLVideoEmbedElement>;
         }
     }
 }

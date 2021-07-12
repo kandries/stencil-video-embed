@@ -1,0 +1,72 @@
+:host {
+  contain: content;
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: calc(100% / (16 / 9));
+}
+
+#frame, #fallbackPlaceholder, iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#frame {
+  cursor: pointer;
+}
+
+#fallbackPlaceholder {
+  object-fit: cover;
+}
+
+/* Play button */
+.play-button {
+  width: 70px;
+  height: 46px;
+  background-color: #212121;
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 12%;
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  border: 0;
+  cursor: pointer;
+}
+
+#frame:hover .play-button {
+  opacity: 1;
+}
+#frame:hover .play-button--youtube {
+  background-color: #ff0000;
+  opacity: 1;
+}
+#frame:hover .play-button--vimeo {
+  background-color: #ef0800;
+  opacity: 1;
+}
+
+/* Play button triangle */
+.play-button:before {
+  content: '';
+  border-style: solid;
+  border-width: 11px 0 11px 19px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.play-button,
+.play-button:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* Post-click styles */
+.frame-activated {
+  cursor: unset;
+}
+
+#frame.frame-activated::before,
+.frame-activated .play-button {
+  display: none;
+}
